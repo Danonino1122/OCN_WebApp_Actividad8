@@ -1,0 +1,41 @@
+@model IEnumerable<OCN_WebApp.Models.RegistroOCN>
+@* 1) ¿Qué recibe? Una lista de... (namespace de tus modelos + tu clase) *@
+
+@{
+    ViewData["Title"] = "Registros OCN";
+}
+
+<h1>Registros de detección (OCN)</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">+ Nuevo registro</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Zona</th>
+            <th>Problemática</th>
+            <th>Intensidad</th>
+            <th>Frecuencia</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Zona?.NombreZona</td>            @* 2) el nombre de la zona (mira Zona.cs) *@
+                <td>@item.Problematica?.NombreProblematica</td>    @* 3) el nombre de la problemática *@
+                <td>@item.Intensidad</td>                  @* 4) intensidad *@
+                <td>@item.Frecuencia</td>                  @* 5) frecuencia *@
+                <td>
+                    @* 6) en los 3 enlaces: tu PK (mira RegistroOCN.cs) *@
+                    <a asp-action="Details" asp-route-id="@item.RegistroOCNId" class="btn btn-sm btn-outline-info">Ver</a>
+                    <a asp-action="Edit"    asp-route-id="@item.RegistroOCNId" class="btn btn-sm btn-outline-warning">Editar</a>
+                    <a asp-action="Delete"  asp-route-id="@item.RegistroOCNId" class="btn btn-sm btn-outline-danger">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

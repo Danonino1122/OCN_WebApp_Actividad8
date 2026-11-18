@@ -1,0 +1,37 @@
+@model RegistroOCN
+
+@{
+    ViewData["Title"] = "Eliminar un registro";
+}
+
+<h1>Eliminar registro</h1>
+<h4 class="text-danger">¿Seguro que quieres eliminar este registro? Esta acción no se puede deshacer.</h4>
+
+<div class="card" style="max-width: 32rem;">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-5">Id</dt>
+            <dd class="col-sm-7">@Model.RegistroOCNId</dd>                 @* 2) la PK *@
+
+            <dt class="col-sm-5">Zona</dt>
+            <dd class="col-sm-7">@Model.Zona?.NombreZona</dd>           @* 3) nombre de la zona *@
+
+            <dt class="col-sm-5">Problemática</dt>
+            <dd class="col-sm-7">@Model.Problematica?.NombreProblematica</dd>   @* 4) nombre de la problemática *@
+
+            <dt class="col-sm-5">Intensidad (1–5)</dt>
+            <dd class="col-sm-7">@Model.Intensidad</dd>                 @* 5) *@
+
+            <dt class="col-sm-5">Frecuencia (1–5)</dt>
+            <dd class="col-sm-7">@Model.Frecuencia</dd>                 @* 6) *@
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post" class="mt-3">     @* ¿a qué acción? (pista: el letrero ActionName) *@
+    @Html.AntiForgeryToken()                            @* el 3er sello *@
+    <input type="hidden" asp-for="RegistroOCNId" />              @* ¿qué dato necesita DeleteConfirmed para saber cuál borrar? *@
+
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
