@@ -11,26 +11,26 @@
     <div class="card-body">
         <dl class="row mb-0">
             <dt class="col-sm-5">Id</dt>
-            <dd class="col-sm-7">@Model.RegistroOCNId</dd>                 @* 2) la PK *@
+            <dd class="col-sm-7">@Model.RegistroOCNId</dd>                 
 
             <dt class="col-sm-5">Zona</dt>
-            <dd class="col-sm-7">@Model.Zona?.NombreZona</dd>           @* 3) nombre de la zona *@
+            <dd class="col-sm-7">@Model.Zona?.NombreZona</dd>           
 
             <dt class="col-sm-5">Problemática</dt>
-            <dd class="col-sm-7">@Model.Problematica?.NombreProblematica</dd>   @* 4) nombre de la problemática *@
+            <dd class="col-sm-7">@Model.Problematica?.NombreProblematica</dd>   
 
             <dt class="col-sm-5">Intensidad (1–5)</dt>
-            <dd class="col-sm-7">@Model.Intensidad</dd>                 @* 5) *@
+            <dd class="col-sm-7">@Model.Intensidad</dd>                 
 
             <dt class="col-sm-5">Frecuencia (1–5)</dt>
-            <dd class="col-sm-7">@Model.Frecuencia</dd>                 @* 6) *@
+            <dd class="col-sm-7">@Model.Frecuencia</dd>                 
         </dl>
     </div>
 </div>
 
-<form asp-action="Delete" method="post" class="mt-3">     @* ¿a qué acción? (pista: el letrero ActionName) *@
-    @Html.AntiForgeryToken()                            @* el 3er sello *@
-    <input type="hidden" asp-for="RegistroOCNId" />              @* ¿qué dato necesita DeleteConfirmed para saber cuál borrar? *@
+<form asp-action="Delete" method="post" class="mt-3">    
+    @Html.AntiForgeryToken()                           
+    <input type="hidden" asp-for="RegistroOCNId" />              
 
     <button type="submit" class="btn btn-danger">Sí, eliminar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>

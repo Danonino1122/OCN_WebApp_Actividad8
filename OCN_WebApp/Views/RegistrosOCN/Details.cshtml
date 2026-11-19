@@ -1,5 +1,4 @@
 @model RegistroOCN
-@* 1) Recibe UN registro (no una lista): solo la clase, sin IEnumerable *@
 
 @{
     ViewData["Title"] = "Detalle del registro";
@@ -11,24 +10,24 @@
     <div class="card-body">
         <dl class="row mb-0">
             <dt class="col-sm-5">Id</dt>
-            <dd class="col-sm-7">@Model.RegistroOCNId</dd>                 @* 2) la PK *@
+            <dd class="col-sm-7">@Model.RegistroOCNId</dd>                 
 
             <dt class="col-sm-5">Zona</dt>
-            <dd class="col-sm-7">@Model.Zona?.NombreZona</dd>           @* 3) nombre de la zona *@
+            <dd class="col-sm-7">@Model.Zona?.NombreZona</dd>           
 
             <dt class="col-sm-5">Problemática</dt>
-            <dd class="col-sm-7">@Model.Problematica?.NombreProblematica</dd>   @* 4) nombre de la problemática *@
+            <dd class="col-sm-7">@Model.Problematica?.NombreProblematica</dd>   
 
             <dt class="col-sm-5">Intensidad (1–5)</dt>
-            <dd class="col-sm-7">@Model.Intensidad</dd>                 @* 5) *@
+            <dd class="col-sm-7">@Model.Intensidad</dd>                
 
             <dt class="col-sm-5">Frecuencia (1–5)</dt>
-            <dd class="col-sm-7">@Model.Frecuencia</dd>                 @* 6) *@
+            <dd class="col-sm-7">@Model.Frecuencia</dd>               
         </dl>
     </div>
 </div>
 
 <div class="mt-3">
-    <a asp-action="Edit" asp-route-id="@Model.RegistroOCNId" class="btn btn-warning">Editar</a>   @* 7) la PK *@
+    <a asp-action="Edit" asp-route-id="@Model.RegistroOCNId" class="btn btn-warning">Editar</a>   
     <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
 </div>

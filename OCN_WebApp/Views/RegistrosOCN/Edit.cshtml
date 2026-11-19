@@ -9,13 +9,13 @@
 
 <div class="row">
     <div class="col-md-5">
-        <form asp-action="Edit" method="post">     @* ¿A qué acción se envía? *@
-            @Html.AntiForgeryToken()               @* el "sello" contra CSRF *@
+        <form asp-action="Edit" method="post">     
+            @Html.AntiForgeryToken()              
             <input type="hidden" asp-for="RegistroOCNId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="mb-3">
-                <label asp-for="ZonaId" class="form-label">Zona</label>          @* la FK de Zona *@
+                <label asp-for="ZonaId" class="form-label">Zona</label>         
                 <select asp-for="ZonaId" class="form-select" asp-items="ViewBag.ZonaId">
                     <option value="">-- Elige una zona --</option>
                 </select>
@@ -23,7 +23,7 @@
             </div>
 
             <div class="mb-3">
-                <label asp-for="ProblematicaId" class="form-label">Problemática</label>  @* la FK de Problematica *@
+                <label asp-for="ProblematicaId" class="form-label">Problemática</label>  
                 <select asp-for="ProblematicaId" class="form-select" asp-items="ViewBag.ProblematicaId">
                     <option value="">-- Elige una problemática --</option>
                 </select>

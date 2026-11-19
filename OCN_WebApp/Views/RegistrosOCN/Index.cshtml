@@ -1,5 +1,4 @@
 @model IEnumerable<OCN_WebApp.Models.RegistroOCN>
-@* 1) ¿Qué recibe? Una lista de... (namespace de tus modelos + tu clase) *@
 
 @{
     ViewData["Title"] = "Registros OCN";
@@ -25,12 +24,11 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Zona?.NombreZona</td>            @* 2) el nombre de la zona (mira Zona.cs) *@
-                <td>@item.Problematica?.NombreProblematica</td>    @* 3) el nombre de la problemática *@
-                <td>@item.Intensidad</td>                  @* 4) intensidad *@
-                <td>@item.Frecuencia</td>                  @* 5) frecuencia *@
+                <td>@item.Zona?.NombreZona</td>            
+                <td>@item.Problematica?.NombreProblematica</td>    
+                <td>@item.Intensidad</td>                  
+                <td>@item.Frecuencia</td>                  
                 <td>
-                    @* 6) en los 3 enlaces: tu PK (mira RegistroOCN.cs) *@
                     <a asp-action="Details" asp-route-id="@item.RegistroOCNId" class="btn btn-sm btn-outline-info">Ver</a>
                     <a asp-action="Edit"    asp-route-id="@item.RegistroOCNId" class="btn btn-sm btn-outline-warning">Editar</a>
                     <a asp-action="Delete"  asp-route-id="@item.RegistroOCNId" class="btn btn-sm btn-outline-danger">Borrar</a>
